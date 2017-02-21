@@ -1,15 +1,34 @@
 let camera = null;
-let scene = null;
+let scene = null, cssScene = null;
 let sceneRenderer = null;
 let cssRenderer = null;
-let projector = null;
 let container = null;
 const target = new THREE.Vector3();
 let movingCamera = false;
+let timer = 3600; // 60 minutes in seconds
 
 document.addEventListener('DOMContentLoaded', () => {
    
     loadScene();
+
+    setInterval(() => {
+
+        const minutes = timer / 60;
+        let seconds = timer % 60;
+
+        if (seconds < 10) {
+            seconds = "0" + seconds;
+        }
+
+        document.getElementsByClassName('timer')[0].innerHTML = `${Math.floor(minutes)}:${seconds}`;
+
+        timer -= 1;
+
+        if (timer <= 0) {
+
+            timer = 3600;
+        }
+    }, 1000);
 });
 
 function loadScene() {
@@ -17,6 +36,7 @@ function loadScene() {
     container = document.getElementById('render');
     
     scene = new THREE.Scene();
+    cssScene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 1000 );
     
     camera.target = new THREE.Vector3(1000, 0, 0);
@@ -28,7 +48,7 @@ function loadScene() {
 
     const textureCube = loader.load( [
         'cube.left.png', 'cube.right.png',
-        'cube.bottom.png', 'cube2top.png',
+        'cube.bottom.png', 'cube.top.png',
         'cube.front.png', 'cube.back.png'
     ] );
 
@@ -51,14 +71,41 @@ function loadScene() {
     sceneRenderer.setSize( window.innerWidth, window.innerHeight );
     
     container.appendChild( sceneRenderer.domElement );
-
-
-    projector = new THREE.Projector();
     
     window.addEventListener("resize", onWindowResize, !1);
 
     moveCamera();
     render();
+
+    createElement(100, 0, 100, "link1", "Link", "#");
+
+    // Require a delay so that CSS elements are rendered before assigning event handlers
+    setTimeout(() => {
+        
+        for (const el of document.querySelectorAll('.anchor')) {
+
+            el.addEventListener('click', () => {
+
+                // Variable el.dataset.link now holds the element to highlight in a pane
+            });
+        }
+    }, 100);
+}
+
+function createElement(x, y, z, className, label, link) {
+
+    const element = document.createElement("div");
+    element.dataset.link = link;
+    element.innerHTML = "<span>" + label + "</span>";
+    element.className = "anchor " + className;
+
+    const div = new THREE.CSS3DSprite(element);
+    div.position.x = x;
+    div.position.y = y;
+    div.position.z = z;
+    div.scale.x = div.scale.y = .4;
+
+    cssScene.add(div);
 }
 
 function onWindowResize(ev) {
@@ -82,13 +129,11 @@ function render() {
     target.y = Math.cos( phi );
     target.z = Math.sin( phi ) * Math.sin( theta );
 
-    console.log(phi, theta, target);
-
     camera.lookAt( target );
 
-	sceneRenderer.render( scene, camera );
+    cssRenderer.render( cssScene, camera );
 
-    cssRenderer.render( scene, camera );
+	sceneRenderer.render( scene, camera );
 }
 
 function onDocumentMouseMove(event) {
