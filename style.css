@@ -1,0 +1,11 @@
+body, canvas, html {
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+#render {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+}
