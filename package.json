@@ -1,0 +1,23 @@
+{
+  "name": "escape-room-vr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChrisHampu/EscapeRoomVR.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ChrisHampu/EscapeRoomVR/issues"
+  },
+  "homepage": "https://github.com/ChrisHampu/EscapeRoomVR#readme",
+  "dependencies": {
+    "koa": "^1.2.5",
+    "koa-static": "^2.1.0"
+  }
+}
