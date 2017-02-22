@@ -11,24 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
    
     loadScene();
 
-    setInterval(() => {
+    loadInteractionEvents();
 
-        const minutes = timer / 60;
-        let seconds = timer % 60;
-
-        if (seconds < 10) {
-            seconds = "0" + seconds;
-        }
-
-        document.getElementsByClassName('timer')[0].innerHTML = `${Math.floor(minutes)}:${seconds}`;
-
-        timer -= 1;
-
-        if (timer <= 0) {
-
-            timer = 3600;
-        }
-    }, 1000);
+    startTimer();
 });
 
 function loadScene() {
@@ -90,6 +75,27 @@ function loadScene() {
             });
         }
     }, 100);
+}
+
+function startTimer() {
+    setInterval(() => {
+
+        const minutes = timer / 60;
+        let seconds = timer % 60;
+
+        if (seconds < 10) {
+            seconds = "0" + seconds;
+        }
+
+        document.getElementsByClassName('timer')[0].innerHTML = `${Math.floor(minutes)}:${seconds}`;
+
+        timer -= 1;
+
+        if (timer <= 0) {
+
+            timer = 3600;
+        }
+    }, 1000);
 }
 
 function createElement(x, y, z, className, label, link) {
@@ -171,4 +177,106 @@ function moveCamera() {
     container.addEventListener("mouseup", onDocumentMouseUp);
 
     camera.updateProjectionMatrix();
+}
+
+function loadInteractionEvents() {
+
+    const streamToggle = document.getElementById('toggle-streaming');
+    const skipToggle = document.getElementById('toggle-skip');
+    const backButton = document.getElementById('menu-back');
+
+    streamToggle.addEventListener('click', (ev) => {
+
+        streamToggle.classList.toggle('active');
+    });
+
+    skipToggle.addEventListener('click', (ev) => {
+
+        skipToggle.classList.toggle('active');
+    });
+
+    document.getElementById('menu-gameplay').addEventListener('click', () => {
+
+        for (const el of document.getElementsByClassName('main-menu')) {
+
+            el.classList.add('hidden');
+        }
+
+        for (const el of document.getElementsByClassName('gameplay-menu')) {
+
+            el.classList.remove('hidden');
+        }
+
+        backButton.classList.remove('hidden');
+    });
+
+    document.getElementById('menu-options').addEventListener('click', () => {
+
+        for (const el of document.getElementsByClassName('main-menu')) {
+
+            el.classList.add('hidden');
+        }
+
+        for (const el of document.getElementsByClassName('options-menu')) {
+
+            el.classList.remove('hidden');
+        }
+
+        backButton.classList.remove('hidden');
+    });
+
+    backButton.addEventListener('click', () => {
+
+        resetMenus();
+    })
+
+    addPageHandler('menu-storymode', 'page-storymode');
+    addPageHandler('menu-puzzlemode', 'page-puzzlemode');
+    addPageHandler('menu-tutorial', 'page-tutorial');
+
+    for (const el of document.getElementsByClassName('page-close')) {
+
+        el.addEventListener('click', hidePages);
+    }
+}
+
+function resetMenus() {
+
+    for (const el of document.getElementsByClassName('main-menu')) {
+
+        el.classList.remove('hidden');
+    }
+
+    for (const el of document.getElementsByClassName('gameplay-menu')) {
+
+        el.classList.add('hidden');
+    }
+
+    for (const el of document.getElementsByClassName('options-menu')) {
+
+        el.classList.add('hidden');
+    }
+
+    document.getElementById('menu-back').classList.add('hidden');
+}
+
+function hidePages() {
+
+    for (const el of document.getElementsByClassName('page')) {
+
+        el.classList.remove('active');
+    }
+}
+
+function addPageHandler(menuClass, pageClass) {
+
+    document.getElementById(menuClass).addEventListener('click', () => {
+
+        hidePages();
+
+        setTimeout(() => {
+
+            document.getElementById(pageClass).classList.add('active');
+        }, 450);
+    });
 }

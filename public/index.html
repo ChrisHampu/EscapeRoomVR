@@ -3,16 +3,93 @@
     <head>
         <title></title>
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="style.css"/>
         <script type="text/javascript" src="js/three.js"></script>
         <script type="text/javascript" src="js/css_renderer.js"></script>
         <script type="text/javascript" src="js/script.js"></script>
     </head>
     <body>
-        <div id="render"></div>
+        <div id="render" class="blur"></div>
         <div class="overlay">
             <div class="timer"></div>
             <div class="inventory"></div>
+            <div class="main_menu">
+                <div class="menu_box main-menu" id="menu-gameplay">
+                    <span><i class="fa fa-gamepad" aria-hidden="true"></i>Gameplay</span>
+                </div>
+                <div class="menu_box main-menu" id="menu-tutorial">
+                    <span><i class="fa fa-graduation-cap" aria-hidden="true"></i>Tutorial</span>
+                </div>
+                <div class="menu_box main-menu" id="menu-stats">
+                    <span><i class="fa fa-bar-chart" aria-hidden="true"></i>Stats</span>
+                </div>
+                <div class="menu_box main-menu" id="menu-options">
+                    <span><i class="fa fa-cog" aria-hidden="true"></i>Options</span>
+                </div>
+                <div class="menu_box hidden" id="menu-back">
+                    <span><i class="fa fa-undo" aria-hidden="true"></i>Back</span>
+                </div>
+                <div class="menu_box options-menu hidden">
+                    <div class="toggle" id="toggle-streaming">
+                        <label><i class="fa fa-twitch" aria-hidden="true"></i>Streaming</label>
+                        <div class="track">
+                            <div class="track_line"></div>
+                            <div class="track_circle"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu_box options-menu hidden">
+                    <div class="toggle" id="toggle-skip">
+                        <label><i class="fa fa-fast-forward" aria-hidden="true"></i>Skip Enabled</label>
+                        <div class="track">
+                            <div class="track_line"></div>
+                            <div class="track_circle"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu_box gameplay-menu hidden" id="menu-storymode">
+                    <span><i class="fa fa-book" aria-hidden="true"></i>Story Mode</span>
+                </div>
+                <div class="menu_box gameplay-menu hidden" id="menu-puzzlemode">
+                    <span><i class="fa fa-puzzle-piece" aria-hidden="true"></i>Puzzle Mode</span>
+                </div>
+            </div>
+        </div>
+        <div class="page" id="page-storymode">
+            <div class="page-close">
+                <i class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div class="page-title">
+                Story Mode
+            </div>
+            <div class="page-content">
+            <p>Story mode is composed of a set of sequential room challenges to complete. The rooms become more difficult as each one is completed. What’s more, items collected in earlier rooms may be needed in order to complete later challenges. Players may move backwards through rooms without having to re-do the previous challenges.They may not evidently, move forward without completing the current challenge.</p>
+            <p>Within each room, a procedural series of actions must be performed in order to escape. When each of these milestones is completed, this progress is saved, in addition to the current state of the player’s inventory, which tracks the items they have collected up to that point.When the game is exited and then it is restored, it will return to the point immediately following the completion of the most recent milestone.These milestone steps can be skipped (auto completed by the game) , advancing the game, through the expenditure of credits (see Options).When these steps are completed, nothing is seen on the user’s end.They do not get to understand the puzzle solving aspects of the portion they have skipped over; the necessary steps to complete that subtask are simply completed and the items that would have been collected appear in the player’s inventory.</p>
+            </div>
+        </div>
+        <div class="page" id="page-puzzlemode">
+            <div class="page-close">
+                <i class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div class="page-title">
+                Puzzle Mode
+            </div>
+            <div class="page-content">
+            <p>Puzzle mode allows the user to choose from a set of  puzzle rooms, different from those in story mode, to solve. Each of these rooms is designed to be able to be completed independently; all puzzle rooms are mutually exclusive in that no item other than those loaded into inventory when the room is launched, are needed to complete it.</p>
+            <p>Puzzle rooms may be played in single or multiplayer mode. Single player puzzle is has a format identical to that of story mode. Multiplayer mode remotely connects players over the internet. Teams of up to five can either be chosen by providing all players’ unique identification, or randomly assigned from a pool of waiting users. The goal of multiplayer mode is not to engender competition but to encourage collaboration ; the setup of the rooms is the same as single player mode and therefore, every milestone action can only be completed once. This format means that there is no support for competitive gameplay. All players on a team share an inventory and must work together to escape the room.</p> 
+            </div>
+        </div>
+        <div class="page" id="page-tutorial">
+            <div class="page-close">
+                <i class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div class="page-title">
+                Tutorial
+            </div>
+            <div class="page-content">
+            <p>Tutorial content</p>
+            </div>
         </div>
     </body>
 </html>
