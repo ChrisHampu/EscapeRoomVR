@@ -12,8 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
     loadScene();
 
     loadInteractionEvents();
-
-    startTimer();
 });
 
 function loadScene() {
@@ -78,6 +76,12 @@ function loadScene() {
 }
 
 function startTimer() {
+
+    // Check if timer not already going
+    if (timer !== 3600) {
+        return;
+    }
+
     setInterval(() => {
 
         const minutes = timer / 60;
@@ -250,10 +254,16 @@ function loadInteractionEvents() {
     addPageHandler('menu-tutorial', 'page-tutorial');
     addPageHandler('menu-share', 'page-share');
     addPageHandler('menu-leaderboards', 'page-leaderboards');
+    addPageHandler('timer', 'page-timer');
 
     for (const el of document.getElementsByClassName('page-close')) {
 
         el.addEventListener('click', hidePages);
+    }
+
+    for (const el of document.getElementsByClassName('start-game')) {
+
+         el.addEventListener('click', startGame);
     }
 }
 
@@ -290,6 +300,16 @@ function hidePages() {
     }
 }
 
+function hideMenus() {
+
+    resetMenus();
+
+    for (const el of document.getElementsByClassName('menu_box')) {
+
+        el.classList.add('hidden');
+    }
+}
+
 function addPageHandler(menuClass, pageClass) {
 
     document.getElementById(menuClass).addEventListener('click', () => {
@@ -301,4 +321,15 @@ function addPageHandler(menuClass, pageClass) {
             document.getElementById(pageClass).classList.add('active');
         }, 450);
     });
+}
+
+function startGame() {
+
+    document.getElementById('render').classList.remove('blur');
+
+    hidePages();
+
+    hideMenus();
+
+    startTimer();
 }
