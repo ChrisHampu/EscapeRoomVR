@@ -207,6 +207,7 @@ ul {
     width: 30%;
     max-width: 30%;
     padding: 2rem;
+    z-index: 10;
 }
 
 .page-title {
