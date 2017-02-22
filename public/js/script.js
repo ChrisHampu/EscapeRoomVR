@@ -225,6 +225,21 @@ function loadInteractionEvents() {
         backButton.classList.remove('hidden');
     });
 
+    document.getElementById('menu-stats').addEventListener('click', () => {
+
+        for (const el of document.getElementsByClassName('main-menu')) {
+
+            el.classList.add('hidden');
+        }
+
+        for (const el of document.getElementsByClassName('stats-menu')) {
+
+            el.classList.remove('hidden');
+        }
+
+        backButton.classList.remove('hidden');
+    });
+
     backButton.addEventListener('click', () => {
 
         resetMenus();
@@ -233,6 +248,8 @@ function loadInteractionEvents() {
     addPageHandler('menu-storymode', 'page-storymode');
     addPageHandler('menu-puzzlemode', 'page-puzzlemode');
     addPageHandler('menu-tutorial', 'page-tutorial');
+    addPageHandler('menu-share', 'page-share');
+    addPageHandler('menu-leaderboards', 'page-leaderboards');
 
     for (const el of document.getElementsByClassName('page-close')) {
 
@@ -253,6 +270,11 @@ function resetMenus() {
     }
 
     for (const el of document.getElementsByClassName('options-menu')) {
+
+        el.classList.add('hidden');
+    }
+
+    for (const el of document.getElementsByClassName('stats-menu')) {
 
         el.classList.add('hidden');
     }
