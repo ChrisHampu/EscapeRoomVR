@@ -51,6 +51,15 @@
                     </div>
                 </div>
                 <div class="menu_box options-menu hidden">
+                    <div class="toggle" id="toggle-skip">
+                        <label><i class="fa fa-fast-forward" aria-hidden="true"></i>Skip Enabled</label>
+                        <div class="track">
+                            <div class="track_line"></div>
+                            <div class="track_circle"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu_box options-menu hidden">
                     <div class="toggle" id="toggle-streaming">
                         <label><i class="fa fa-twitch" aria-hidden="true"></i>Streaming</label>
                         <div class="track">
@@ -59,14 +68,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="menu_box options-menu hidden">
-                    <div class="toggle" id="toggle-skip">
-                        <label><i class="fa fa-fast-forward" aria-hidden="true"></i>Skip Enabled</label>
-                        <div class="track">
-                            <div class="track_line"></div>
-                            <div class="track_circle"></div>
-                        </div>
-                    </div>
+                <div class="menu_box options-menu hidden" id="menu-configurestreaming">
+                    <span><i class="fa fa-twitch" aria-hidden="true"></i>Configure Streaming</span>
                 </div>
                 <div class="menu_box gameplay-menu hidden" id="menu-storymode">
                     <span><i class="fa fa-book" aria-hidden="true"></i>Story Mode</span>
@@ -172,6 +175,18 @@
                     <p>The volume option will allow the user to adjust how loud the game volume is. This is a global option for all of the sounds within the game: background, interactions, and any other sounds available.</p>
                     <o>Enabling the use of credits permits the user to use credits to bypass steps in a given room to hasten its completion, or to extend the allocated time limit by 30 second increments. Credits are earned automatically upon the completion of rooms, but can also be purchased with real money through the game’s website. All the user has to do is log in using their unique player id (See streaming) and provide a method of payment. Credits reside in the player’s inventory. Credits earned through the completion of Story mode challenges may only be then in turn used in story mode ; the same is true of Puzzle mode credits.</p>
                     <p>Enabling the stream option allows users who may be gaming aficionados to stream their live gameplay directly to their preferred outlet (eg. YouTube). The settings to allow streaming (eg. login information) can be initially set up/changed by pressing the ‘configure settings’ button which will pull up the form containing the relevant credentials.</p>
+                </div>
+            </div>
+            <div class="page" id="page-configurestreaming">
+                <div class="page-close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </div>
+                <div class="page-title">
+                    Configure Streaming
+                </div>
+                <div class="page-content">
+                    <p>In order to stream to twitch.tv, the player must first input their stream key using an input box and an onscreen keyboard. The input box could be styled like the one below and be clickable. Once the stream key has been verified, the streaming option can be toggled in the options menu and the game will automatically begin broadcasting their gameplay.</p>
+                    <input type="text" value="Twitch Stream Key"/>
                 </div>
             </div>
         </div>

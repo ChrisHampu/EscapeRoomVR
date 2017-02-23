@@ -256,6 +256,7 @@ function loadInteractionEvents() {
     addPageHandler('menu-leaderboards', 'page-leaderboards');
     addPageHandler('timer', 'page-timer');
     addPageHandler('menu-options', 'page-options');
+    addPageHandler('menu-configurestreaming', 'page-configurestreaming');
 
     for (const el of document.getElementsByClassName('page-close')) {
 

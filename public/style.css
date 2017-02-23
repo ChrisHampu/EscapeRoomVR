@@ -341,7 +341,7 @@ ul {
     transform: translate(-50%, -50%);
 }
 
-input[tyoe="text"] {
+input[type="text"] {
     padding: 0px;
     position: relative;
     width: 100%;
