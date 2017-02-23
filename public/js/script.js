@@ -274,6 +274,11 @@ function loadInteractionEvents() {
 
         stopGame();
     });
+
+    document.getElementById('close-gameplay-notice').addEventListener('click', () => {
+
+        document.getElementById('gameplay-notice').classList.remove('active');
+    });
 }
 
 function resetMenus() {
@@ -343,6 +348,8 @@ function startGame() {
     hideMenus();
 
     startTimer();
+
+    document.getElementById('gameplay-notice').classList.add('active');
 }
 
 function stopGame() {
