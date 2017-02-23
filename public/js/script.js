@@ -267,6 +267,13 @@ function loadInteractionEvents() {
 
          el.addEventListener('click', startGame);
     }
+
+    document.getElementById('menu-toggle').addEventListener('click', () => {
+
+        resetMenus();
+
+        stopGame();
+    });
 }
 
 function resetMenus() {
@@ -327,6 +334,8 @@ function addPageHandler(menuClass, pageClass) {
 
 function startGame() {
 
+    document.getElementById('menu-toggle').classList.add('active');
+
     document.getElementById('render').classList.remove('blur');
 
     hidePages();
@@ -334,4 +343,11 @@ function startGame() {
     hideMenus();
 
     startTimer();
+}
+
+function stopGame() {
+
+    document.getElementById('menu-toggle').classList.remove('active');
+
+    document.getElementById('render').classList.add('blur');
 }

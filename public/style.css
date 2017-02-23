@@ -362,3 +362,22 @@ input[type="text"] {
     -webkit-appearance: textfield;
     border-bottom: 2px solid rgb(0, 188, 212);
 }
+
+.menu-toggle {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    padding: 0.5rem;
+    background-color: white;
+    color: black;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 15;
+    box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
+    pointer-events: all;
+    display: none;
+}
+
+.menu-toggle.active {
+    display: block;
+}
