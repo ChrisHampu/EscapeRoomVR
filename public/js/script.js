@@ -30,9 +30,9 @@ function loadScene() {
     loader.setPath( 'images/' );
 
     const textureCube = loader.load( [
-        'cube.left.png', 'cube.right.png',
-        'cube.bottom.png', 'cube.top.png',
-        'cube.front.png', 'cube.back.png'
+        'room.left.jpg', 'room.right.jpg',
+        'room.bottom.jpg', 'room.top.jpg',
+        'room.front.jpg', 'room.back.jpg'
     ] );
 
     const cube = new THREE.Mesh(new THREE.BoxGeometry(1024, 1024, 1024, 7, 7, 7), new THREE.MeshBasicMaterial( { color: 0xffffff, envMap: textureCube } ));
