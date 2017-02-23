@@ -255,6 +255,7 @@ function loadInteractionEvents() {
     addPageHandler('menu-share', 'page-share');
     addPageHandler('menu-leaderboards', 'page-leaderboards');
     addPageHandler('timer', 'page-timer');
+    addPageHandler('menu-options', 'page-options');
 
     for (const el of document.getElementsByClassName('page-close')) {
 
