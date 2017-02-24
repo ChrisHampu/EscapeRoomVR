@@ -60,16 +60,17 @@ function loadScene() {
     moveCamera();
     render();
 
-    createElement(100, 0, 100, "link1", "Link", "#");
+    createElement(68, 57, -421, "switch", "lightbulb-o", "Switch", "page-lightswitch");
 
     // Require a delay so that CSS elements are rendered before assigning event handlers
     setTimeout(() => {
         
-        for (const el of document.querySelectorAll('.anchor')) {
+        for (const el of document.querySelectorAll('.interactable')) {
 
             el.addEventListener('click', () => {
 
                 // Variable el.dataset.link now holds the element to highlight in a pane
+                triggerPage(el.dataset.link);
             });
         }
     }, 100);
@@ -102,12 +103,12 @@ function startTimer() {
     }, 1000);
 }
 
-function createElement(x, y, z, className, label, link) {
+function createElement(x, y, z, className, iconName, label, link) {
 
     const element = document.createElement("div");
     element.dataset.link = link;
-    element.innerHTML = "<span>" + label + "</span>";
-    element.className = "anchor " + className;
+    element.innerHTML = `<div class="interactable-tail"></div><div class="interactable-icon"><i class="fa fa-${iconName}" aria-hidden="true"></i></div><div class="interactable-text">${label}</div>`;
+    element.className = "interactable " + className;
 
     const div = new THREE.CSS3DSprite(element);
     div.position.x = x;
@@ -338,17 +339,22 @@ function hideMenus() {
     }
 }
 
-function addPageHandler(menuClass, pageClass) {
+function addPageHandler(menuClass, pageID) {
 
     document.getElementById(menuClass).addEventListener('click', () => {
 
-        hidePages();
-
-        setTimeout(() => {
-
-            document.getElementById(pageClass).classList.add('active');
-        }, 450);
+        triggerPage(pageID);
     });
+}
+
+function triggerPage(pageID) {
+
+    hidePages();
+
+    setTimeout(() => {
+
+        document.getElementById(pageID).classList.add('active');
+    }, 450);
 }
 
 function startGame() {
