@@ -263,6 +263,8 @@
                 </div>
                 <div class="page-content">
                     <p>The inventory is an interactive icon that is always located at the top right corner of the player’s view unless they are interacting with their inventory. When a player wishes to open their inventory, they must raise their right hand so it hovers over the Inventory icon and press the ‘Select’ button. This opens a 4x4 grid of inventory objects that have been collected so far. Players may use the trackpad to scroll through and highlight desired objects but hovering over the object in 3D space using the controller will also highlight it. Once the desired object is highlighted, the user may press select, which then restores the inventory back to the top right corner while the selected object appears in front of the player. In the case that there are more than 16 objects, the trackpad can be used to scroll to the next page of the inventory.</p>
+                    <p>An item that can have quantity greater than 1, such as having multiple skip credits, should be represented by a small number in the bottom right corner of the item’s slot in the inventory. This number should be visible and change with the quantity of the item. An item that is consumable, again like credits, should have a small popup box telling the user what the item does when they select it, and ask the user to “Confirm” or “Close”. The confirm option can be modified to suit the particular item, such as substituting “Use Skip Credit”. The close option will simply cancel the action and close the popup box. Upon confirming the action, the user should be given a form of feedback, the item count reduced in their inventory or removed if none are left,  and the popup box closed.</p>
+                    <p>
                 </div>
             </div>
             <div class="page" id="page-inventory-skip">
@@ -273,7 +275,7 @@
                     Skip Credits
                 </div>
                 <div class="page-content">
-                    <p>In order to stream to twitch.tv, the player must first input their stream key using an input box and an onscreen keyboard. The input box could be styled like the one below and be clickable to open the on-screen keyboard. Once the stream key has been verified, the streaming option can be toggled in the options menu and the game will automatically begin broadcasting their gameplay.</p>
+                    <p>These credits can be consumed by the user in order to add 3 minutes to the time they have left to complete the room, or to skip their current task in the room. These behave according to the design of the inventory and have the customized options “Add Room Time” and “Skip Next Puzzle”. This feature must be enabled by the user in the options menu, and in that section is a further description about skip credits.</p>
                 </div>
             </div>
         </div>
