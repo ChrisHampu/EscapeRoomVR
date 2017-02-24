@@ -144,6 +144,12 @@
                 <div class="menu_box stats-menu hidden" id="menu-share">
                     <span><i class="fa fa-facebook" aria-hidden="true"></i>Share to Facebook</span>
                 </div>
+                <div class="menu_box puzzle-menu hidden" id="menu-singleplayer">
+                    <span><i class="fa fa-user" aria-hidden="true"></i>Single Player</span>
+                </div>
+                <div class="menu_box puzzle-menu hidden" id="menu-multiplayer">
+                    <span><i class="fa fa-users" aria-hidden="true"></i>Multiplayer</span>
+                </div>
             </div>
             <div class="page" id="page-storymode">
                 <div class="page-close">
@@ -173,13 +179,8 @@
                 <div class="page-content">
                     <p>Puzzle mode allows the user to choose from a set of  puzzle rooms, different from those in story mode, to solve. Each of these rooms is designed to be able to be completed independently; all puzzle rooms are mutually exclusive in that no item other than those loaded into inventory when the room is launched, are needed to complete it.</p>
                     <p>
-                    Puzzle rooms may be played in single or multiplayer mode. Single player puzzle is has a format identical to that of story mode. Multiplayer mode remotely connects players over the internet. Teams of up to five can either be chosen by providing all players’ unique identification, or randomly assigned from a pool of waiting users. The goal of multiplayer mode is to work together to complete the puzzles. The game state is synchronized between all the players, so whenever someone makes progress on a puzzle or finds a new item, everyone will see the effects of that. This format means that there is no support for competitive gameplay. In multiplayer, all players share the same inventory and can access those items at any time, even if someone else is using them. Any time one player obtains an item, all other players may immediately use that item as well. There is no risk of conflicts occurring between the devices, because each item only has one possible use; if both players “use up” an item at the same time, it doesn’t matter because the end result is always the same no matter who used it.</p>
+                    Puzzle mode allows the user to choose from a set of  puzzle rooms, different from those in story mode, to solve. Each of these rooms is designed to be able to be completed independently; all puzzle rooms are mutually exclusive in that no item other than those loaded into inventory when the room is launched, are needed to complete it. Puzzle rooms may be played in single or multiplayer mode. Both modes impose a time limit, like a conventional escape room.The amount of time allocated varies with room difficulty; the two are directly correlated. A countdown timer is always displayed in the top lefthand corner of the user’s view.</p>
                     <p>Puzzle mode rooms are all independent, therefore upon completion, the user’s view will be replaced by a black completion screen that updates them on the number of credits earned and expended during that level.They will then be transported back to the Puzzle mode gameplay menu.</p>
-                    <div class="button start-game">
-                        <div class="button-inner">
-                            <span>Start Game</span>
-                        </div>
-                    </div>
                 </div>
             </div>
             <div class="page" id="page-tutorial">
@@ -234,11 +235,11 @@
                     Options
                 </div>
                 <div class="page-content">
-                    <p>If the player selects ‘Options’ , the startup menu is replaced by a secondary options menu with the possible selections: brightness, sound, credits, and stream. The first two are incremental sliders while the latter two are simple on/off toggle switches. Below the stream switch is an option button ‘configure streaming’. If the settings for streaming have not been initially set, the game will not allow the user to toggle streaming ‘on’.</p>
+                    <p>If the player selects ‘Options’, the startup menu is replaced by a secondary options menu with the possible selections: display brightness, sound volume, streaming, and skipping. The first two are incremental sliders while the latter two are simple on/off toggle switches. The “streaming” option allows the player to stream their gameplay using a service such as twitch.tv. Below the stream switch is an option button ‘configure streaming’. The “streaming” toggle switch is greyed out unless the user has properly configured their streaming settings.</p>
                     <h3>Brightness</h3>
-                    <p>The brightness option allows the user to adjust the brightness if the screen and the sound slider allows the user to adjust the volume level between mute and max volume.</p>
+                    <p>The brightness option allows the user to adjust the brightness of the display.</p>
                     <h3>Volume</h3>
-                    <p>The volume option will allow the user to adjust how loud the game volume is. This is a global option for all of the sounds within the game: background, interactions, and any other sounds available.</p>
+                    <p>The volume option will allow the user to adjust how loud the game volume is or mute it completely. This is a global option for all of the sounds within the game: background, interactions, and any other sounds available.</p>
                     <h3>Skipping</h3>
                     <o>Enabling the use of credits permits the user to use credits to bypass steps in a given room to hasten its completion, or to extend the allocated time limit by 30 second increments. Credits are earned automatically upon the completion of rooms, but can also be purchased with real money through the game’s website. All the user has to do is log in using their unique player id (See streaming) and provide a method of payment. Credits reside in the player’s inventory. Credits earned through the completion of Story mode challenges may only be then in turn used in story mode ; the same is true of Puzzle mode credits.</p>
                     <h3>Streaming</h3>
@@ -334,6 +335,49 @@
                 </div>
                 <div class="page-content">
                     <p>Some rooms may have cabinets or drawers that contain items that are required to solve a puzzle. In some cases, important items might be hidden underneath another object that must be moved to find the item.</p>
+                </div>
+            </div>
+            <div class="page" id="page-doors">
+                <div class="page-close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </div>
+                <div class="page-title">
+                    Doors
+                </div>
+                <div class="page-content">
+                    <p>Each room has an exit door, and the player’s goal is to find a way to open that door. Depending on the room, the user may have to find a key that unlocks the door, find and enter a combination into a keypad that opens the door, or find some kind of secret lever or button that opens the door. Once the door is open, the room is completed. In story mode, most of the rooms will have an entrance door which leads back to a previous room; the player may go back through this door at any time in case they need an item from a previous room.</p>
+                </div>
+            </div>
+            <div class="page" id="page-singleplayer">
+                <div class="page-close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </div>
+                <div class="page-title">
+                    Single Player
+                </div>
+                <div class="page-content">
+                    <p>Single player puzzle is has a format identical to that of story mode, except that each room is independent and they can be played in any order.</p>
+                    <div class="button start-game">
+                        <div class="button-inner">
+                            <span>Start Game</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page" id="page-multiplayer">
+                <div class="page-close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </div>
+                <div class="page-title">
+                    Multiplayer
+                </div>
+                <div class="page-content">
+                    <p>Multiplayer mode remotely connects players over the internet. Teams of up to five can either be chosen by providing all players’ unique identification, or randomly assigned from a pool of waiting users. The goal of multiplayer mode is to work together to complete the puzzles. The game state is synchronized between all the players, so any time one player makes progress on a puzzle, every other player’s game will be updated to reflect that. This format means that there is no support for competitive gameplay. In multiplayer, all players share the same inventory and can access those items at any time, even if someone else is using them. Any time one player obtains an item, all other players may immediately use that item as well. There is no risk of conflicts occurring between the devices, because each item only has one possible use; if both players “use up” an item or solve a puzzle at the same time, it doesn’t matter because the end result is always the same no matter who used it.</p>
+                    <div class="button start-game">
+                        <div class="button-inner">
+                            <span>Start Game</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

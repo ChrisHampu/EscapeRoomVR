@@ -65,6 +65,7 @@ function loadScene() {
     createElement(-556, -27, 96, "code", "lock", "Code", "page-code");
     createElement(-314, 93, 225, "interact", "hand-paper-o", "Interactables", "page-interact");
     createElement(-22, -240, 500, "hidden", "eye", "Hidden", "page-hidden");
+    createElement(230, 0, 500, "doors", "exchange", "Doors", "page-doors");
 
     // Require a delay so that CSS elements are rendered before assigning event handlers
     setTimeout(() => {
@@ -251,6 +252,26 @@ function loadInteractionEvents() {
         backButton.classList.remove('hidden');
     });
 
+    document.getElementById('menu-puzzlemode').addEventListener('click', () => {
+
+        for (const el of document.getElementsByClassName('main-menu')) {
+
+            el.classList.add('hidden');
+        }
+
+        for (const el of document.getElementsByClassName('gameplay-menu')) {
+
+            el.classList.add('hidden');
+        }
+
+        for (const el of document.getElementsByClassName('puzzle-menu')) {
+
+            el.classList.remove('hidden');
+        }
+
+        backButton.classList.remove('hidden');
+    });
+
     backButton.addEventListener('click', () => {
 
         resetMenus();
@@ -266,6 +287,8 @@ function loadInteractionEvents() {
     addPageHandler('menu-configurestreaming', 'page-configurestreaming');
     addPageHandler('inventory-button', 'page-inventory');
     addPageHandler('inventory-skip', 'page-inventory-skip');
+    addPageHandler('menu-singleplayer', 'page-singleplayer');
+    addPageHandler('menu-multiplayer', 'page-multiplayer');
 
     for (const el of document.getElementsByClassName('page-close')) {
 
@@ -318,6 +341,11 @@ function resetMenus() {
     }
 
     for (const el of document.getElementsByClassName('stats-menu')) {
+
+        el.classList.add('hidden');
+    }
+
+    for (const el of document.getElementsByClassName('puzzle-menu')) {
 
         el.classList.add('hidden');
     }
