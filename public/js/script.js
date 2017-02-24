@@ -61,6 +61,10 @@ function loadScene() {
     render();
 
     createElement(68, 57, -421, "switch", "lightbulb-o", "Switch", "page-lightswitch");
+    createElement(-546, 227, -244, "note", "book", "Note", "page-note");
+    createElement(-556, -27, 96, "code", "lock", "Code", "page-code");
+    createElement(-314, 93, 225, "interact", "hand-paper-o", "Interactables", "page-interact");
+    createElement(-22, -240, 500, "hidden", "eye", "Hidden", "page-hidden");
 
     // Require a delay so that CSS elements are rendered before assigning event handlers
     setTimeout(() => {
