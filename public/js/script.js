@@ -172,6 +172,8 @@ function onDocumentMouseUp() {
     event.preventDefault();
 
     movingCamera = false;
+
+    hidePages();
 }
 
 function moveCamera() {
@@ -257,6 +259,8 @@ function loadInteractionEvents() {
     addPageHandler('timer', 'page-timer');
     addPageHandler('menu-options', 'page-options');
     addPageHandler('menu-configurestreaming', 'page-configurestreaming');
+    addPageHandler('inventory-button', 'page-inventory');
+    addPageHandler('inventory-skip', 'page-inventory-skip');
 
     for (const el of document.getElementsByClassName('page-close')) {
 
@@ -278,6 +282,16 @@ function loadInteractionEvents() {
     document.getElementById('close-gameplay-notice').addEventListener('click', () => {
 
         document.getElementById('gameplay-notice').classList.remove('active');
+    });
+
+    document.getElementById('inventory-button').addEventListener('click', () => {
+
+        document.getElementById('inventory').classList.add('active');
+    });
+
+    document.getElementById('inventory-close').addEventListener('click', () => {
+
+        document.getElementById('inventory').classList.remove('active');
     });
 }
 
@@ -339,7 +353,9 @@ function addPageHandler(menuClass, pageClass) {
 
 function startGame() {
 
+    // Corner buttons
     document.getElementById('menu-toggle').classList.add('active');
+    document.getElementById('inventory-button').classList.add('active');
 
     document.getElementById('render').classList.remove('blur');
 
@@ -355,6 +371,7 @@ function startGame() {
 function stopGame() {
 
     document.getElementById('menu-toggle').classList.remove('active');
+    document.getElementById('inventory-button').classList.remove('active');
 
     document.getElementById('render').classList.add('blur');
 }

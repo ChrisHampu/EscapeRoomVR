@@ -403,3 +403,79 @@ input[type="text"] {
     margin: 0 auto;
     pointer-events: all;
 }
+
+#inventory {
+    position: fixed;
+    height: 100vh;
+    align-content: center;
+    align-items: center;
+    display: none;
+    width: 100%;
+}
+
+#inventory.active {
+    display: flex;
+}
+
+#inventory-button {
+    position: fixed;
+    top: 6rem;
+    right: 2rem;
+    background-color: white;
+    padding: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    pointer-events: all;
+    display: none;
+    font-size: 1.2rem;
+}
+
+#inventory-button.active {
+    display: block;
+}
+
+.inventory-container {
+    pointer-events: all;
+    display: inline-block;
+    background-color: white;
+    padding: 0.4rem;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
+    text-align: right;
+    margin: 0 auto;
+}
+
+#inventory-close {
+    font-size: 2rem;
+    width: 100%;
+    padding-bottom: 0.25rem;
+    cursor: pointer;
+}
+
+.inventory-inner {
+    display: flex;
+    flex-direction: row;
+}
+
+.inventory-row {
+
+}
+
+.inventory-slot {
+    padding: 1rem;
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+}
+
+.inventory-slot:hover {
+    background-color: rgba(0,0,0,0.0784);
+}
+
+.inventory-slot i {
+    font-size: 2rem;
+    margin: 0 auto;
+    cursor: pointer;
+}

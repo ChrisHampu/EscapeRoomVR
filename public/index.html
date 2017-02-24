@@ -18,11 +18,61 @@
             <div id="gameplay-notice">
                 <div class="gameplay-notice-content">
                     <p>This is an interactive demo of an example escape room level. You can look around in 360 degrees by clicking on the room and dragging your mouse. This simulates how a player will look around a room when moving their head while using a VR headset. There are objects within the room that you can click on to to read more information about how users playing the game will interact within the room. In a typical level, players would be able to move around the room and approach objects by using directional buttons on their controller to walk around the room. If the user has a room-scale VR setup such as the Vive, the movement of the player can be controlled by tracking their movement within their physical room. As you look around the room and interact with objects, keep in mind that the goal of this project using VR is to build upon the conceptual model of keeping the controls as natural as possible to mimic how a player would interact with a room in the real world.</p>
+                    <p>The rooms would contain a variety of objects that the player could interact with, such as items they can pick up and put in their inventory, switches that they can turn on or off, keypads that they can enter a code on, and clues that help them solve puzzles. To interact with an object, the user points their controller at it and pulls the trigger. Interactable objects are highlighted by the game, to make them easier to spot. To store an object in their inventory, they must first use the ‘interact’ button to pick it up. While pressing the select button after picking up an object lets you examine it more closely, pressing the select and interact buttons, simultaneously allows you to store the item in your inventory.</p>
                     <button class="button" id="close-gameplay-notice">
                         <div class="button-inner">
                             <span>Close</span>
                         </div>
                     </button>
+                </div>
+            </div>
+            <i id="inventory-button" class="fa fa-info-circle" aria-hidden="true"></i>
+            <div id="inventory">
+                <div class="inventory-container">
+                    <i id="inventory-close" class="fa fa-times" aria-hidden="true"></i>
+                    <div class="inventory-inner">
+                        <div class="inventory-row">
+                            <div class="inventory-slot">
+                                <i class="fa fa-step-forward" id="inventory-skip" aria-hidden="true"></i>
+                            </div>
+                            <div class="inventory-slot">
+                            </div>
+                            <div class="inventory-slot">
+                            </div>
+                            <div class="inventory-slot">
+                            </div>
+                        </div>
+                        <div class="inventory-row">
+                            <div class="inventory-slot">
+                            </div>
+                            <div class="inventory-slot">
+                            </div>
+                            <div class="inventory-slot">
+                            </div>
+                            <div class="inventory-slot">
+                            </div>
+                        </div>
+                        <div class="inventory-row">
+                            <div class="inventory-slot">
+                            </div>
+                            <div class="inventory-slot">
+                            </div>
+                            <div class="inventory-slot">
+                            </div>
+                            <div class="inventory-slot">
+                            </div>
+                        </div>
+                        <div class="inventory-row">
+                            <div class="inventory-slot">
+                            </div>
+                            <div class="inventory-slot">
+                            </div>
+                            <div class="inventory-slot">
+                            </div>
+                            <div class="inventory-slot">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="main_menu">
@@ -170,7 +220,7 @@
                     Timer
                 </div>
                 <div class="page-content">
-                <p>Timer explanation</p>
+                <p>The timer is a fixed countdown clock located at the top left corner of the player’s field of view. The clock moves with the players movements so they they may always keep an eye on how much time they have left to complete the puzzle. If a player runs out of time without completing the room, they are deemed to have failed that level and are given the option to repeat it. The amount of time may be extended, in Story mode only, through the expenditure of credits.</p>
                 </div>
             </div>
             <div class="page" id="page-options">
@@ -182,9 +232,13 @@
                 </div>
                 <div class="page-content">
                     <p>If the player selects ‘Options’ , the startup menu is replaced by a secondary options menu with the possible selections: brightness, sound, credits, and stream. The first two are incremental sliders while the latter two are simple on/off toggle switches. Below the stream switch is an option button ‘configure streaming’. If the settings for streaming have not been initially set, the game will not allow the user to toggle streaming ‘on’.</p>
+                    <h3>Brightness</h3>
                     <p>The brightness option allows the user to adjust the brightness if the screen and the sound slider allows the user to adjust the volume level between mute and max volume.</p>
+                    <h3>Volume</h3>
                     <p>The volume option will allow the user to adjust how loud the game volume is. This is a global option for all of the sounds within the game: background, interactions, and any other sounds available.</p>
+                    <h3>Skipping</h3>
                     <o>Enabling the use of credits permits the user to use credits to bypass steps in a given room to hasten its completion, or to extend the allocated time limit by 30 second increments. Credits are earned automatically upon the completion of rooms, but can also be purchased with real money through the game’s website. All the user has to do is log in using their unique player id (See streaming) and provide a method of payment. Credits reside in the player’s inventory. Credits earned through the completion of Story mode challenges may only be then in turn used in story mode ; the same is true of Puzzle mode credits.</p>
+                    <h3>Streaming</h3>
                     <p>Enabling the stream option allows users who may be gaming aficionados to stream their live gameplay directly to their preferred outlet (eg. YouTube). The settings to allow streaming (eg. login information) can be initially set up/changed by pressing the ‘configure settings’ button which will pull up the form containing the relevant credentials.</p>
                 </div>
             </div>
@@ -198,6 +252,28 @@
                 <div class="page-content">
                     <p>In order to stream to twitch.tv, the player must first input their stream key using an input box and an onscreen keyboard. The input box could be styled like the one below and be clickable to open the on-screen keyboard. Once the stream key has been verified, the streaming option can be toggled in the options menu and the game will automatically begin broadcasting their gameplay.</p>
                     <input type="text" value="Twitch Stream Key"/>
+                </div>
+            </div>
+            <div class="page" id="page-inventory">
+                <div class="page-close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </div>
+                <div class="page-title">
+                    Inventory
+                </div>
+                <div class="page-content">
+                    <p>The inventory is an interactive icon that is always located at the top right corner of the player’s view unless they are interacting with their inventory. When a player wishes to open their inventory, they must raise their right hand so it hovers over the Inventory icon and press the ‘Select’ button. This opens a 4x4 grid of inventory objects that have been collected so far. Players may use the trackpad to scroll through and highlight desired objects but hovering over the object in 3D space using the controller will also highlight it. Once the desired object is highlighted, the user may press select, which then restores the inventory back to the top right corner while the selected object appears in front of the player. In the case that there are more than 16 objects, the trackpad can be used to scroll to the next page of the inventory.</p>
+                </div>
+            </div>
+            <div class="page" id="page-inventory-skip">
+                <div class="page-close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </div>
+                <div class="page-title">
+                    Skip Credits
+                </div>
+                <div class="page-content">
+                    <p>In order to stream to twitch.tv, the player must first input their stream key using an input box and an onscreen keyboard. The input box could be styled like the one below and be clickable to open the on-screen keyboard. Once the stream key has been verified, the streaming option can be toggled in the options menu and the game will automatically begin broadcasting their gameplay.</p>
                 </div>
             </div>
         </div>
